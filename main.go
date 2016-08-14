@@ -9,7 +9,7 @@ import (
 
 func handle(w http.ResponseWriter, r *http.Request) {
 	log.Println("request recived, responding message...")
-	fmt.Fprint(w, "hi, demo started")
+	fmt.Fprint(w, "hello gita :)")
 }
 
 func main() {
