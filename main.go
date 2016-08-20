@@ -5,6 +5,7 @@ import (
 	"os"
 	"fmt"
 	"log"
+	"github.com/gorilla/mux"
 )
 
 func handle(w http.ResponseWriter, r *http.Request) {
@@ -14,8 +15,8 @@ func handle(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	port := os.Getenv("PORT")
-	log.Println("Port:",port)
-	http.HandleFunc("/", handle)
-	log.Println("Starting service...")
+	router := mux.NewRouter()
+	router.PathPrefix("/").Handler(http.FileServer(http.Dir("./static/")))
+	http.Handle("/", router)
 	http.ListenAndServe(":"+port+"/", nil)
 }
