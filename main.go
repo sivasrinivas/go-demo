@@ -2,10 +2,10 @@ package main
 
 import (
 	"net/http"
-	"os"
 	"fmt"
 	"log"
 	"github.com/gorilla/mux"
+	"os"
 )
 
 func handle(w http.ResponseWriter, r *http.Request) {
